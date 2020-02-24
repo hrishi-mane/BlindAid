@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "173648871359",
+    "firebase_url": "https://blindaid-4e3c2.firebaseio.com",
+    "project_id": "blindaid-4e3c2",
+    "storage_bucket": "blindaid-4e3c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173648871359:android:86fa7c328ce3366d276b0a",
+        "android_client_info": {
+          "package_name": "com.example.blindaid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173648871359-m8rcpr30ulmou9j8ngvi132d5ujmbbag.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blindaid",
+            "certificate_hash": "7516ac44d2fbd2cbc2080388e727688a71c675ea"
+          }
+        },
+        {
+          "client_id": "173648871359-lodpnq2h9ei5aqu1i2m684ohu8sbvi93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9wSh_s_ED6zX9G2KbTpPlnJTnY9WuSZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "173648871359-lodpnq2h9ei5aqu1i2m684ohu8sbvi93.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

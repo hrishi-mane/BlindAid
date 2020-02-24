@@ -1,0 +1,130 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.blindaid"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="15"
+8-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+11-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:26:5-81
+11-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:26:22-78
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:27:5-67
+12-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:27:22-64
+13    <uses-permission android:name="android.permission.SEND_SMS" />
+13-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:28:5-67
+13-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:28:22-64
+14    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+14-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:30:5-71
+14-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:30:22-68
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->[com.google.firebase:firebase-database:16.0.4] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\52e6d79ef0e6f0d446994a411fca7498\jetified-firebase-database-16.0.4\AndroidManifest.xml:22:5-79
+15-->[com.google.firebase:firebase-database:16.0.4] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\52e6d79ef0e6f0d446994a411fca7498\jetified-firebase-database-16.0.4\AndroidManifest.xml:22:22-76
+16
+17    <application
+17-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:5:5-25:19
+18        android:allowBackup="true"
+18-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:6:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\16eb53875ba78320b1fcf5cac2c4c8c7\core-1.0.1\AndroidManifest.xml:22:18-86
+20        android:debuggable="true"
+21        android:icon="@mipmap/ic_launcher"
+21-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:7:9-43
+22        android:label="@string/app_name"
+22-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:8:9-41
+23        android:roundIcon="@mipmap/ic_launcher_round"
+23-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:9:9-54
+24        android:supportsRtl="true"
+24-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:10:9-35
+25        android:theme="@style/AppTheme" >
+25-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:11:9-40
+26        <activity android:name="com.example.blindaid.MainActivity1" >
+26-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:12:9-14:20
+26-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:12:19-48
+27        </activity>
+28        <activity android:name="com.example.blindaid.AdminLogin" />
+28-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:15:9-48
+28-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:15:19-45
+29        <activity android:name="com.example.blindaid.Homepage" >
+29-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:16:9-22:20
+29-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:16:19-43
+30            <intent-filter>
+30-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:17:13-21:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:18:17-69
+31-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:18:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:20:17-77
+33-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:20:27-74
+34            </intent-filter>
+35        </activity>
+36        <activity android:name="com.example.blindaid.EMERGENCY_CONTACT" />
+36-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:23:9-55
+36-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:23:19-52
+37        <activity android:name="com.example.blindaid.MainActivity" />
+37-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:24:9-50
+37-->C:\Users\Admin\Documents\BE Project\BlindAid\app\src\main\AndroidManifest.xml:24:19-47
+38        <activity
+38-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:24:9-31:50
+39            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+39-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:25:13-85
+40            android:excludeFromRecents="true"
+40-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:26:13-46
+41            android:exported="true"
+41-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:27:13-36
+42            android:launchMode="singleTask"
+42-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:28:13-44
+43            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+43-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:29:13-102
+44            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+44-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:30:13-72
+45
+46        <service
+46-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:33:9-39:19
+47            android:name="com.google.firebase.components.ComponentDiscoveryService"
+47-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:34:13-84
+48            android:exported="false" >
+48-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:35:13-37
+49            <meta-data
+49-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:36:13-38:85
+50                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+50-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:37:17-109
+51                android:value="com.google.firebase.components.ComponentRegistrar" />
+51-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5b11b8cbf981de32539aec53be8dc886\jetified-firebase-auth-16.0.5\AndroidManifest.xml:38:17-82
+52        </service>
+53
+54        <activity
+54-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\503246db64dcbb120c121745b36c75fd\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+55            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+55-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\503246db64dcbb120c121745b36c75fd\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+56            android:exported="false"
+56-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\503246db64dcbb120c121745b36c75fd\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+57            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+57-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\503246db64dcbb120c121745b36c75fd\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+58
+59        <provider
+59-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\55e14a04fa5f1444bf1ca660b1bb2fc2\jetified-firebase-common-16.0.3\AndroidManifest.xml:10:9-14:39
+60            android:name="com.google.firebase.provider.FirebaseInitProvider"
+60-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\55e14a04fa5f1444bf1ca660b1bb2fc2\jetified-firebase-common-16.0.3\AndroidManifest.xml:11:13-77
+61            android:authorities="com.example.blindaid.firebaseinitprovider"
+61-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\55e14a04fa5f1444bf1ca660b1bb2fc2\jetified-firebase-common-16.0.3\AndroidManifest.xml:12:13-72
+62            android:exported="false"
+62-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\55e14a04fa5f1444bf1ca660b1bb2fc2\jetified-firebase-common-16.0.3\AndroidManifest.xml:13:13-37
+63            android:initOrder="100" />
+63-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\55e14a04fa5f1444bf1ca660b1bb2fc2\jetified-firebase-common-16.0.3\AndroidManifest.xml:14:13-36
+64
+65        <meta-data
+65-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\bf8747e514e8bba72d3fe728a13dc412\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+66            android:name="com.google.android.gms.version"
+66-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\bf8747e514e8bba72d3fe728a13dc412\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+67            android:value="@integer/google_play_services_version" />
+67-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\bf8747e514e8bba72d3fe728a13dc412\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+68    </application>
+69
+70</manifest>
