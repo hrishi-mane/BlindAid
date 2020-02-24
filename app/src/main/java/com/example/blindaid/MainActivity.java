@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<String> matches = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
                 if(matches!=null & source.getText().toString().equals("")){
                     source.setText(matches.get(0));
-                    speak("Source दर्ज किया गया है" + source.getText().toString() + ", Destination बोलने के लिए फिर से क्लिक करें");
+                    speak("Source location दर्ज किया गया है" + source.getText().toString() + ", Destination बोलने के लिए फिर से क्लिक करें");
                 }
                 else{
                     if(matches!=null & destination.getText().toString().equals("")){
