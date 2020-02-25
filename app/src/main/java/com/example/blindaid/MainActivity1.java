@@ -100,7 +100,7 @@ public class MainActivity1 extends AppCompatActivity {
     }
 
     private void loadNote() {
-
+        buffer.delete(0, buffer.length());
         busData.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -120,7 +120,7 @@ public class MainActivity1 extends AppCompatActivity {
                     buffer.append("Total Travel Time: " + note.getTravel_time());
                     buffer.append("\n");
                     buffer.append("\n");
-                }
+            }
                 showMessage("Data",buffer.toString());
             }
         });
