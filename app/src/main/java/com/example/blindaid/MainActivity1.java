@@ -4,9 +4,9 @@ package com.example.blindaid;
 
 import androidx.annotation.NonNull;
 //import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,13 +17,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Map;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 
 public class MainActivity1 extends AppCompatActivity {
 //    boolean isInserted;
-//    boolean isUpdated;
+//   boolean isUpdated;
     Database myDb;
     EditText Source, Destination, BusNo, BusTime, ArrivalTime, DepartureTime;
     Button Add;
@@ -32,6 +32,7 @@ public class MainActivity1 extends AppCompatActivity {
     Button Retrieve;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference busData = db.collection("BusData");
+    StringBuffer buffer = new StringBuffer();
 
 
     @Override
@@ -84,13 +85,47 @@ public class MainActivity1 extends AppCompatActivity {
         String travel_time = BusTime.getText().toString();
 
         Note note = new Note(source,destination,bus_number,arrival_time,departure_time,travel_time);
-        busData.add(note);
+        busData.add(note).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Toast.makeText(MainActivity1.this, "Data Added", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(MainActivity1.this, "Data Failed to Add", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
-
 
     private void loadNote() {
+
+        busData.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                    Note note = documentSnapshot.toObject(Note.class);
+
+                    buffer.append("Source: " + note.getSource());
+                    buffer.append("\n");
+                    buffer.append("Destination: " + note.getDestination());
+                    buffer.append("\n");
+                    buffer.append("Bus Number: " + note.getBus_number());
+                    buffer.append("\n");
+                    buffer.append("Departure Time: " + note.getDeparture_time());
+                    buffer.append("\n");
+                    buffer.append("Arrival Time: " + note.getArrival_time());
+                    buffer.append("\n");
+                    buffer.append("Total Travel Time: " + note.getTravel_time());
+                    buffer.append("\n");
+                    buffer.append("\n");
+                }
+                showMessage("Data",buffer.toString());
+            }
+        });
     }
+
 
 
 //    public void UpdateData() {
@@ -136,12 +171,18 @@ public class MainActivity1 extends AppCompatActivity {
 //        );
 //    }
 //
-//    public void RetrieveData(){
-//        Retrieve.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Cursor res = myDb.retrieveData(Source.getText().toString(),Destination.getText().toString());
+
+//
+    public void showMessage(String Title, String Message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(Title);
+        builder.setMessage(Message);
+        builder.show();
+    }
+}
+
+//    Cursor res = myDb.retrieveData(Source.getText().toString(),Destination.getText().toString());
 //                        if(res.getCount() == 0){
 //                            showMessage("Error","No Data Found");
 //                            return;
@@ -159,17 +200,4 @@ public class MainActivity1 extends AppCompatActivity {
 //
 //                            showMessage("Data",buffer.toString());
 //                        }
-//
-//                    }
-//                }
-//        );
-//    }
-//
-//    public void showMessage(String Title, String Message){
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setCancelable(true);
-//        builder.setTitle(Title);
-//        builder.setMessage(Message);
-//        builder.show();
-//    }
-}
+
