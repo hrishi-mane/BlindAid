@@ -1,5 +1,6 @@
 package com.example.blindaid;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.database.Cursor;
+//import android.database.Cursor;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -29,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     EditText source;
     EditText destination;
     Button btn;
-    Database myDb;
+//    Database myDb;
 
     SpeechRecognizer mSpeechRecognizer;
     Intent mSpeechRecognizerIntent;
@@ -37,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     private TextToSpeech myTTS;
 
     int click_count = 0 ;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference busData = db.collection("BusData");
+    StringBuffer buffer = new StringBuffer();
 
 
     @Override
@@ -44,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myDb = new Database(this);
+//        myDb = new Database(this);
         checkPermission();
         initializeTextToSpeech();
 
@@ -135,27 +147,8 @@ public class MainActivity extends AppCompatActivity {
                         mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
                     }
 
-                    if(click_count == 4){
-                        Cursor res = myDb.retrieveData(source.getText().toString(),destination.getText().toString());
-                        if(res.getCount() == 0){
-                            showMessage("Error","No Data Found");
-                            return;
-                        }
-                        else{
-                            StringBuffer buffer = new StringBuffer();
-                            res.moveToFirst();
-                            do {
-                                buffer.append("Bus No: " + res.getString(2) + "\n");
-                                buffer.append("Bus Time: " + res.getString(3) + "\n");
-                                buffer.append("Arrival Time: " + res.getString(4) + "\n");
-                                buffer.append("Departure Time: " + res.getString(5) + "\n\n");
-
-                            }while(res.moveToNext());
-                            speak(buffer.toString());
-
-
-
-                        }
+                    if(click_count >= 4){
+                        loadNote();
 
                     }
                 }
@@ -175,13 +168,40 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void showMessage(String Title, String Message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(Title);
-        builder.setMessage(Message);
-        builder.show();
+    private void loadNote() {
+        buffer.delete(0,buffer.length());
+        busData.whereEqualTo("source",source.getText().toString())
+                .whereEqualTo("destination",destination.getText().toString())
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                    Note note = documentSnapshot.toObject(Note.class);
+                    buffer.append("इस रूट के लिए बस नंबर " + note.getBus_number() + "है");
+                    buffer.append("\n");
+                    buffer.append("बस" + note.getDeparture_time() + note.getSource() + "से रवाना होगी ");
+                    buffer.append("\n");
+                    buffer.append("और" + note.getArrival_time() +  "बजे" + note.getDestination() + "पहुंचेगी");
+                    buffer.append("\n");
+                    buffer.append("बस का कुल यात्रा समय" + note.getTravel_time() + "मिनट है" );
+                    buffer.append("\n");
+                    buffer.append("\n");
+                }
+                if(buffer.length() != 0){speak(buffer.toString());}
+                else{speak("इस मार्ग के लिए कोई बस उपलब्ध नहीं है।");}
+
+            }
+        });
     }
+
+//    private void showMessage(String Title, String Message) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setCancelable(true);
+//        builder.setTitle(Title);
+//        builder.setMessage(Message);
+//        builder.show();
+//    }
 
     //method to initialize the TTS object and to check the availability of TTS engine
     private void initializeTextToSpeech() {
@@ -235,3 +255,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+
+//    Cursor res = myDb.retrieveData(source.getText().toString(),destination.getText().toString());
+//                        if(res.getCount() == 0){
+//                            showMessage("Error","No Data Found");
+//                            return;
+//                        }
+//                        else{
+//
+//                            res.moveToFirst();
+//                            do {
+//                                buffer.append("Bus No: " + res.getString(2) + "\n");
+//                                buffer.append("Bus Time: " + res.getString(3) + "\n");
+//                                buffer.append("Arrival Time: " + res.getString(4) + "\n");
+//                                buffer.append("Departure Time: " + res.getString(5) + "\n\n");
+//
+//                            }while(res.moveToNext());
+//                            speak(buffer.toString());
+//
+//
+//
+//                        }

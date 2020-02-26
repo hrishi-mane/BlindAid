@@ -10,7 +10,7 @@ import android.widget.Button;
 public class Homepage extends AppCompatActivity {
     Button bus;
     Button message;
-    Button admin;
+//    Button admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,14 +19,14 @@ public class Homepage extends AppCompatActivity {
 
         bus = (Button)findViewById(R.id.img_button_1);
         message = (Button)findViewById(R.id.img_button_2);
-        admin = (Button) findViewById(R.id.button3);
+//        admin = (Button) findViewById(R.id.button3);
 
-        admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                activity3();
-            }
-        });
+//        admin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                activity3();
+//            }
+//        });
 
         bus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,11 +43,6 @@ public class Homepage extends AppCompatActivity {
         });
     }
 
-    private void activity3() {
-        Intent intent = new Intent(Homepage.this,AdminLogin.class);
-        startActivity(intent);
-    }
-
 
     private void activity1() {
         Intent intent = new Intent(Homepage.this,MainActivity.class);
@@ -58,6 +53,10 @@ public class Homepage extends AppCompatActivity {
         startActivity(intent);
     }
 
+//    private void activity3() {
+//        Intent intent = new Intent(Homepage.this,AdminLogin.class);
+//        startActivity(intent);
+//    }
 
 
 

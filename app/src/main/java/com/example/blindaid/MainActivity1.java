@@ -3,7 +3,6 @@ package com.example.blindaid;
 
 
 import androidx.annotation.NonNull;
-//import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,7 +23,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class MainActivity1 extends AppCompatActivity {
 //    boolean isInserted;
 //   boolean isUpdated;
-    Database myDb;
+//    Database myDb;
     EditText Source, Destination, BusNo, BusTime, ArrivalTime, DepartureTime;
     Button Add;
     Button Update;
@@ -39,7 +38,7 @@ public class MainActivity1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
-        myDb = new Database(this);
+//        myDb = new Database(this);
 
         Source = findViewById(R.id.sourcetext);
         Destination = findViewById(R.id.destinationtext);
@@ -48,8 +47,8 @@ public class MainActivity1 extends AppCompatActivity {
         ArrivalTime = findViewById(R.id.arrivaltimetime);
         DepartureTime = findViewById(R.id.departuretimetime);
         Add = findViewById(R.id.addData);
-        Update = findViewById(R.id.update);
-        Delete = findViewById(R.id.delete);
+//        Update = findViewById(R.id.update);
+//        Delete = findViewById(R.id.delete);
         Retrieve = findViewById(R.id.retrieve);
 //        UpdateData();
 //        DeleteData();
@@ -126,6 +125,14 @@ public class MainActivity1 extends AppCompatActivity {
         });
     }
 
+    public void showMessage(String Title, String Message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(Title);
+        builder.setMessage(Message);
+        builder.show();
+    }
+
 
 
 //    public void UpdateData() {
@@ -173,13 +180,7 @@ public class MainActivity1 extends AppCompatActivity {
 //
 
 //
-    public void showMessage(String Title, String Message){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(Title);
-        builder.setMessage(Message);
-        builder.show();
-    }
+
 }
 
 //    Cursor res = myDb.retrieveData(Source.getText().toString(),Destination.getText().toString());
