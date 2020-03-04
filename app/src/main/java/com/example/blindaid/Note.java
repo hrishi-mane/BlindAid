@@ -1,5 +1,7 @@
 package com.example.blindaid;
 
+import java.util.Date;
+
 public class Note {
 
 
@@ -7,7 +9,7 @@ public class Note {
     private String destination;
     private String bus_number;
     private String arrival_time;
-    private String departure_time;
+    private Date departure_time;
     private String travel_time;
 
     public Note(){
@@ -15,7 +17,7 @@ public class Note {
     }
 
     public Note(String source, String destination, String bus_number, String arrival_time,
-                String departure_time, String travel_time ){
+                Date departure_time, String travel_time ){
         this.source = source;
         this.destination = destination;
         this.bus_number = bus_number;
@@ -41,7 +43,7 @@ public class Note {
         return arrival_time;
     }
 
-    public String getDeparture_time() {
+    public Date getDeparture_time() {
         return departure_time;
     }
 
