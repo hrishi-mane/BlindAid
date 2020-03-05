@@ -6,11 +6,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
+import android.database.Cursor;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
@@ -22,7 +20,6 @@ import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
 import android.telephony.SmsManager;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +31,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -47,17 +43,19 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
     private SpeechRecognizer mySpeechRecognizer;
 
     private FusedLocationProviderClient fusedLocationClient;
-
     Double latitude, longitude;
     String lati,longi;
+
+    Database myDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency__contact);
+        myDb = new Database(this);
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        
+
 
 
         check_sms_permission();
@@ -65,6 +63,7 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
 
         phone_number = (EditText)findViewById((R.id.editText2));
         btn1 = (Button)findViewById(R.id.button7);
+
 
         initializeTextToSpeech();
         initializeSpeechRecognizer();
@@ -80,6 +79,8 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
 
             }
         });
+
+
     }
 
     private void check_location_permission() {
@@ -88,18 +89,13 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
                 Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
 
-            // Permission is not granted
-            // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(EMERGENCY_CONTACT.this,
                     Manifest.permission.ACCESS_COARSE_LOCATION)) {
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
+
                 ActivityCompat.requestPermissions(EMERGENCY_CONTACT.this,
                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                         1);
             } else {
-                // No explanation needed; request the permission
                 ActivityCompat.requestPermissions(EMERGENCY_CONTACT.this,
                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                         1);
@@ -107,7 +103,6 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
         }
 
         else {
-            // Permission has already been granted
             fusedLocationClient.getLastLocation()
                     .addOnSuccessListener(this, new OnSuccessListener<Location>() {
                         @Override
@@ -192,21 +187,20 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
         }
     }
 
-
-
-
-
     private void processResult(String command) {
 
-        command = command.toLowerCase();
-
-
-        if(command.indexOf("message") != -1) {
-            if (command.indexOf("pushkar") != -1) {
-                speak("Sending sms to pushkar");
-                myMessage("8692974748","This is an emergency message.I am lost");
-                myMessage2("8692974748", lati + longi);
-            }
+        Cursor res1 = myDb.retrieveContact(command);
+        if(res1.getCount()== 0)
+        {
+            Toast.makeText(EMERGENCY_CONTACT.this,"No data found",Toast.LENGTH_LONG).show();
+            return;
+        }
+        else {
+            res1.moveToFirst();
+            String phno = res1.getString(1);
+            speak("Sending SMS");
+            myMessage(phno, "This is an emergency message.I am lost");
+            myMessage(phno, lati + longi);
         }
 
     }
@@ -223,7 +217,7 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
                 }
                 else{
                     myTTS.setLanguage(Locale.US);
-                    speak("You have opened emergency contact Pushkar Kaswankar is registered as your emergency contacts. Tap the screen to speak the name.");
+                    speak("You have opened emergency contacts.Who do you wish to message.");
                 }
             }
         });
@@ -241,9 +235,6 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
             myTTS.speak(s, TextToSpeech.QUEUE_FLUSH, null);
         }
     }
-
-
-
 
     @Override
     protected void onPause() {
@@ -264,26 +255,7 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
         }
     }
 
-
-
-
     private void myMessage(String phone, String message) {
-
-        try{
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phone,null,message,null,null);
-            Toast.makeText(this ,"Message sent" , Toast.LENGTH_SHORT).show();
-
-        }
-
-        catch (Exception e){
-            Toast.makeText(this ,"Message failed" , Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
-
-    }
-
-    private void myMessage2(String phone, String message) {
 
         try{
             SmsManager smsManager = SmsManager.getDefault();
