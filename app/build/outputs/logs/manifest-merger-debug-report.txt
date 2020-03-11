@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-32:12
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-31:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b163ad64fe5d3201bd4e4dcb2b4488f6\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\daee6df2c31aab579f82be9a195199ab\appcompat-1.0.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\3586cf9e5d37a5be2bbe710dbdaeb36f\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
@@ -42,25 +42,43 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Admin\.g
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\71b619f01309f419ed6b9a79fb62df67\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\fa61d2590733005073428aac79eb5436\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:protolite-well-known-types:16.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\998dca7bb11d60a10df3df6d3af24d8f\protolite-well-known-types-16.0.0\AndroidManifest.xml:2:1-11:12
-INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-32:12
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-32:12
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:5:5-81
+	android:name
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:5:22-78
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:6:5-67
+MERGED from [com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\112a99f331993516c5d881df361ac6fe\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\112a99f331993516c5d881df361ac6fe\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.SEND_SMS
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:8:5-71
+	android:name
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:8:22-68
 application
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:5:5-25:19
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:10:5-29:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\3586cf9e5d37a5be2bbe710dbdaeb36f\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\3586cf9e5d37a5be2bbe710dbdaeb36f\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\112a99f331993516c5d881df361ac6fe\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:13:5-19:19
@@ -86,65 +104,51 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Ad
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\16eb53875ba78320b1fcf5cac2c4c8c7\core-1.0.1\AndroidManifest.xml:22:18-86
 	android:supportsRtl
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:15:9-35
 	android:label
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:13:9-41
 	android:roundIcon
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:14:9-54
 	android:icon
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:12:9-43
 	android:allowBackup
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:11:9-40
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:16:9-40
+activity#com.example.blindaid.User_Emergency
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:17:9-61
+	android:name
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:17:19-49
 activity#com.example.blindaid.MainActivity1
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:12:9-14:20
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:18:9-60
 	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:12:19-48
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:18:19-48
 activity#com.example.blindaid.AdminLogin
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:15:9-48
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:19:9-48
 	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:15:19-45
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:19:19-45
 activity#com.example.blindaid.Homepage
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:16:9-22:20
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:20:9-26:20
 	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:16:19-43
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:20:19-43
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:17:13-21:29
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:18:17-69
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:18:25-66
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:20:17-77
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:20:27-74
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:24:27-74
 activity#com.example.blindaid.EMERGENCY_CONTACT
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:23:9-55
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:27:9-55
 	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:23:19-52
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:27:19-52
 activity#com.example.blindaid.MainActivity
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:24:9-50
+ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:28:9-50
 	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:24:19-47
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:26:5-81
-	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:26:22-78
-uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:27:5-67
-MERGED from [com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\112a99f331993516c5d881df361ac6fe\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:11:5-67
-MERGED from [com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\112a99f331993516c5d881df361ac6fe\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:11:5-67
-	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:27:22-64
-uses-permission#android.permission.SEND_SMS
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:28:5-67
-	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:28:22-64
-uses-permission#android.permission.RECORD_AUDIO
-ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:30:5-71
-	android:name
-		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:30:22-68
+		ADDED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml:28:19-47
 uses-sdk
 INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Admin\BlindAid\app\src\main\AndroidManifest.xml
