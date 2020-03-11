@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             String source = Source.getText().toString();
             String destination = Destination.getText().toString();
             String bus_number = BusNo.getText().toString();
-            String arrival_time = ArrivalTime.getText().toString();
+            Date arrival_time = sdf.parse(date + " "+ ArrivalTime.getText().toString());
             Date departure_time = sdf.parse(date + " "+ DepartureTime.getText().toString());
             String travel_time = BusTime.getText().toString();
 
