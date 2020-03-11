@@ -368,10 +368,6 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\16eb53875ba78320b1fcf5cac2c4c8c7\\core-1.0.1\\res\\layout-v16\\notification_template_custom_big.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\BlindAid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_admin_login.xml.flat",
-        "source": "C:\\Users\\Admin\\BlindAid\\app\\src\\main\\res\\layout\\activity_admin_login.xml"
-    },
-    {
         "merged": "C:\\Users\\Admin\\BlindAid\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\503246db64dcbb120c121745b36c75fd\\play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
     },
@@ -854,6 +850,10 @@
     {
         "merged": "C:\\Users\\Admin\\BlindAid\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_edittext.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\daee6df2c31aab579f82be9a195199ab\\appcompat-1.0.2\\res\\color-v23\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\BlindAid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_user__emergency.xml.flat",
+        "source": "C:\\Users\\Admin\\BlindAid\\app\\src\\main\\res\\layout\\activity_user__emergency.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\BlindAid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_emergency__contact.xml.flat",
@@ -1410,10 +1410,6 @@
     {
         "merged": "C:\\Users\\Admin\\BlindAid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\daee6df2c31aab579f82be9a195199ab\\appcompat-1.0.2\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_36dp.png"
-    },
-    {
-        "merged": "C:\\Users\\Admin\\BlindAid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main1.xml.flat",
-        "source": "C:\\Users\\Admin\\BlindAid\\app\\src\\main\\res\\layout\\activity_main1.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\BlindAid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_btn_colored_material.xml.flat",
