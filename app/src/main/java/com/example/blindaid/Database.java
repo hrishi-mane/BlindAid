@@ -51,6 +51,18 @@ public class Database extends SQLiteOpenHelper {
             return true;
     }
 
+
+    public Integer deleteContact( String Full_Name, String Phone_Number ){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME1, "Full_Name = ? AND Phone_Number = ? ", new String[] {Full_Name, Phone_Number});
+    }
+
+    public Cursor rtrContact(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res2 = db.rawQuery("Select FULL_NAME , PHONE_NUMBER from contact_data",null);
+        return res2;
+    }
+
     public Cursor retrieveContact(String name){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res1 = db.rawQuery("Select * From contact_data where FULL_NAME = ?", new String[]{ name });

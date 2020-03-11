@@ -29,7 +29,23 @@
         android:id="@+id/add"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
+        android:layout_marginLeft="150dp"
         android:layout_marginTop="30dp"
         android:text="ADD" />
+
+    <Button
+        android:id="@+id/del"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="30dp"
+        android:text="DELETE" />
+
+    <Button
+        android:id="@+id/view"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="30dp"
+        android:text="VIEW" />
 </LinearLayout>

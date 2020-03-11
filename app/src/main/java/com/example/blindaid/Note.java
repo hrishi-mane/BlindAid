@@ -8,7 +8,7 @@ public class Note {
     private String source;
     private String destination;
     private String bus_number;
-    private String arrival_time;
+    private Date arrival_time;
     private Date departure_time;
     private String travel_time;
 
@@ -16,7 +16,7 @@ public class Note {
         //public no-arg constructor needed
     }
 
-    public Note(String source, String destination, String bus_number, String arrival_time,
+    public Note(String source, String destination, String bus_number, Date arrival_time,
                 Date departure_time, String travel_time ){
         this.source = source;
         this.destination = destination;
@@ -39,7 +39,7 @@ public class Note {
         return bus_number;
     }
 
-    public String getArrival_time() {
+    public Date getArrival_time() {
         return arrival_time;
     }
 
