@@ -28,8 +28,8 @@
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="361dp"
-        android:layout_height="392dp"
+        android:layout_width="346dp"
+        android:layout_height="391dp"
         android:background="?android:attr/panelBackground"
         android:gravity="center"
         android:text="@string/send"

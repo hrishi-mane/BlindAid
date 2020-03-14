@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -29,7 +30,7 @@
         android:id="@+id/add"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="30dp"
         android:text="ADD" />
 
@@ -37,7 +38,7 @@
         android:id="@+id/del"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="30dp"
         android:text="DELETE" />
 
@@ -45,7 +46,7 @@
         android:id="@+id/view"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="30dp"
         android:text="VIEW" />
 </LinearLayout>

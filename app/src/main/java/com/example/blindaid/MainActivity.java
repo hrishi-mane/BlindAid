@@ -40,19 +40,18 @@ public class MainActivity extends AppCompatActivity {
     EditText destination;
     Button btn;
 
-
-
     SpeechRecognizer mSpeechRecognizer;
     Intent mSpeechRecognizerIntent;
     private TextToSpeech myTTS;
 
-    int click_count = 0;
+    int click_count;
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference busData = db.collection("BusData");
+    FirebaseFirestore db;
+    private CollectionReference busData;
 
-    StringBuffer buffer = new StringBuffer();
-    Date dt2 = new Date();
+    StringBuffer buffer;
+
+    Date dt2;
 
 
     @Override
@@ -60,12 +59,22 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        checkPermission();
+
+        audioPermission();
         initializeTextToSpeech();
 
         btn = (Button) findViewById(R.id.button6);
         source = (EditText) findViewById(R.id.editText);
         destination = (EditText) findViewById(R.id.editText5);
+
+        db = FirebaseFirestore.getInstance();
+        busData = db.collection("BusData");
+
+        dt2 = new Date();
+        buffer = new StringBuffer();
+
+        click_count = 0;
+
 
         mSpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
 
@@ -73,6 +82,40 @@ public class MainActivity extends AppCompatActivity {
         mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+
+        //button listener method
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                click_count = click_count + 1;
+                if (click_count == 1) {
+                    speak("आपने Source चुना है। बोलने के लिए फिर से क्लिक करें");
+                }
+                if (click_count == 2) {
+                    mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
+
+                }
+                if (click_count == 3) {
+                    mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
+                }
+
+                if (click_count >= 4) {
+                    loadNote();
+
+                }
+            }
+        });
+
+        btn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                speak("Source और Destination हटाएँ गए हैं। कृपया फिर से दर्ज करें");
+                click_count = -1;
+                source.setText("");
+                destination.setText("");
+                return false;
+            }
+        });
 
         mSpeechRecognizer.setRecognitionListener(new RecognitionListener() {
             @Override
@@ -132,42 +175,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        //button listener method
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                click_count = click_count + 1;
-                if (click_count == 1) {
-                    speak("आपने Source चुना है। बोलने के लिए फिर से क्लिक करें");
-                }
-                if (click_count == 2) {
-                    mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
-
-                }
-                if (click_count == 3) {
-                    mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
-                }
-
-                if (click_count >= 4) {
-                    loadNote();
-
-                }
-            }
-        });
-
-        btn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                speak("Source और Destination हटाएँ गए हैं। कृपया फिर से दर्ज करें");
-                click_count = -1;
-                source.setText("");
-                destination.setText("");
-                return false;
-            }
-        });
-
-
     }
 
     private void loadNote() {
@@ -178,39 +185,45 @@ public class MainActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        int document_count = 0;
                         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                             Note note = documentSnapshot.toObject(Note.class);
-
+                            document_count+=1;
+                            System.out.println(document_count);
                             Calendar stored_date = datetoCalender(note.getDeparture_time());
                             Calendar current_date = datetoCalender(dt2);
 
                             if(stored_date.get(Calendar.HOUR_OF_DAY) > current_date.get(Calendar.HOUR_OF_DAY) ||
                                     stored_date.get(Calendar.HOUR_OF_DAY) == current_date.get(Calendar.HOUR_OF_DAY)) {
 
-                                buffer.append("इस रूट के लिए बस नंबर " + note.getBus_number() + "है");
+                                buffer.append("इस रूट के लिए बस नंबर ").append(note.getBus_number()).append("है");
                                 buffer.append("\n");
 
                                 if(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
                                         datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) < 10){
 
-                                    buffer.append("बस" + "0" + datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) + ":" + "0" +
-                                            datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) + note.getSource() + "से रवाना होगी ");
+                                    buffer.append("बस" + "0").append(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).
+                                            append(":").append("0").append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).
+                                            append(note.getSource()).append("से रवाना होगी ");
                                 }
                                 else if(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
                                         datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) > 10){
 
-                                    buffer.append("बस" + "0" + datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) + ":" +
-                                            datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) + note.getSource() + "से रवाना होगी ");
+                                    buffer.append("बस" + "0").append(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).append(note.getSource()).
+                                            append("से रवाना होगी ");
                                 }
                                 else if(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) > 10 &&
                                         datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) < 10){
 
-                                    buffer.append("बस" + datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) + ":" + "0" +
-                                            datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) + note.getSource() + "से रवाना होगी ");
+                                    buffer.append("बस").append(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append("0").append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).append(note.getSource()).
+                                            append("से रवाना होगी ");
                                 }
                                 else{
-                                    buffer.append("बस" + datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) + ":"+
-                                            datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) + note.getSource() + "से रवाना होगी ");
+                                    buffer.append("बस").append(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).append(note.getSource()).
+                                            append("से रवाना होगी ");
                                 }
                                 buffer.append("\n");
 
@@ -218,33 +231,40 @@ public class MainActivity extends AppCompatActivity {
                                 if(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
                                         datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) < 10){
 
-                                    buffer.append("और" + "0" + datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) + ":"+ "0" +
-                                            datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) + "बजे" + note.getDestination() + "पहुंचेगी");
+                                    buffer.append("और" + "0").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append("0").append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).append("बजे").
+                                            append(note.getDestination()).append("पहुंचेगी");
                                 }
                                 else if(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
                                         datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) > 10){
 
-                                    buffer.append("और" + "0" + datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) + ":"+
-                                            datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) + "बजे" + note.getDestination() + "पहुंचेगी");
+                                    buffer.append("और" + "0").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("बजे").append(note.getDestination()).
+                                            append("पहुंचेगी");
                                 }
 
                                 else if(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) > 10 &&
                                         datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) < 10){
 
-                                    buffer.append("और"+ datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) + ":"+ "0" +
-                                            datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) + "बजे" + note.getDestination() + "पहुंचेगी");
+                                    buffer.append("और").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").append("0").
+                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("बजे").append(note.getDestination()).
+                                            append("पहुंचेगी");
                                 }
                                 else{
-                                    buffer.append("और"+ datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) + ":"+
-                                            datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) + "बजे" + note.getDestination() + "पहुंचेगी");
+                                    buffer.append("और").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("बजे").append(note.getDestination()).
+                                            append("पहुंचेगी");
                                 }
 
-                                buffer.append("\n");
-                                buffer.append("बस का कुल यात्रा समय" + note.getTravel_time() + "मिनट है");
-                                buffer.append("\n");
-                                buffer.append("\n");
+                                buffer.append("\n").append("बस का कुल यात्रा समय").append(note.getTravel_time()).append("मिनट है").append("\n").append("\n");
                             }
-                            speak(buffer.toString());
+
+                        }
+
+                        speak(buffer.toString());
+
+                        if(buffer.toString().length() == 0){
+                            speak("इस मार्ग के लिए कोई बस उपलब्ध नहीं है");
                         }
                     }
                 });
@@ -258,14 +278,6 @@ public class MainActivity extends AppCompatActivity {
         return calendar;
     }
 
-
-    private void showMessage(String Title, String Message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(Title);
-        builder.setMessage(Message);
-        builder.show();
-    }
 
     //method to initialize the TTS object and to check the availability of TTS engine
     private void initializeTextToSpeech() {
@@ -303,7 +315,7 @@ public class MainActivity extends AppCompatActivity {
     /*method is used to open the setting menu upon opening the app to grant
     the microphone permission to the application*/
 
-    private void checkPermission() {
+    private void audioPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!(ContextCompat
                     .checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)

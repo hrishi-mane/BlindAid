@@ -1,6 +1,7 @@
 package com.example.blindaid;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -198,7 +199,7 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
         else {
             res1.moveToFirst();
             String phno = res1.getString(1);
-            speak("Sending SMS");
+            speak("संदेश भेजा है");
             myMessage(phno, "This is an emergency message.I am lost");
             myMessage(phno, lati + longi);
         }
@@ -208,6 +209,7 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
     private void initializeTextToSpeech() {
 
         myTTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onInit(int i) {
                 if(myTTS.getEngines().size()==0) {
@@ -216,8 +218,9 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
                     finish();
                 }
                 else{
-                    myTTS.setLanguage(Locale.US);
-                    speak("You have opened emergency contacts.Who do you wish to message.");
+                    myTTS.setLanguage(Locale.forLanguageTag("hin"));
+                    speak("आपने आपातकालीन संपर्क खोला हैं। \n" +
+                            "आप किसे संदेश भेजना चाहते हैं");
                 }
             }
         });

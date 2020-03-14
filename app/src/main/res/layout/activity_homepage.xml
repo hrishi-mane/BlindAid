@@ -11,37 +11,36 @@
     <Button
         android:id="@+id/img_button_1"
         android:layout_width="352dp"
-        android:layout_height="230dp"
+        android:layout_height="220dp"
         android:background="@drawable/bus_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.171" />
 
     <Button
         android:id="@+id/img_button_2"
-        android:layout_width="353dp"
-        android:layout_height="230dp"
+        android:layout_width="351dp"
+        android:layout_height="237dp"
         android:background="@drawable/message_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.899" />
+        app:layout_constraintVertical_bias="0.996" />
 
     <Button
         android:id="@+id/btn_add"
         android:layout_width="128dp"
         android:layout_height="53dp"
-        android:layout_marginTop="16dp"
         android:text="@string/add_contact_button_name"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.135" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
