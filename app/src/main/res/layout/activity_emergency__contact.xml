@@ -8,7 +8,6 @@
     tools:context=".EMERGENCY_CONTACT">
 
 
-
     <EditText
         android:id="@+id/editText2"
         android:layout_width="290dp"
@@ -16,20 +15,21 @@
         android:background="@android:color/white"
         android:ems="10"
         android:gravity="center|start"
+        android:hint="@string/emergency_number"
         android:inputType="textPersonName"
         android:paddingLeft="5dp"
-        android:hint="@string/emergency_number"
         android:textColor="@color/textcolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.065" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="346dp"
-        android:layout_height="391dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="?android:attr/panelBackground"
         android:gravity="center"
         android:text="@string/send"
@@ -38,7 +38,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
         app:layout_constraintVertical_bias="0.915" />
 
 
