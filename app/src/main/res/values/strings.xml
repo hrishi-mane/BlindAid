@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">Bus Corporation</string>
-    <string name="password">Password</string>
     <string name="username">Username</string>
+    <string name="password">Password</string>
     <string name="adminbutton">Submit</string>
+    <string name="source">SOURCE:</string>
+    <string name="destination">DESTINATION:</string>
+    <string name="bus_no">BUS NO:</string>
+    <string name="bus_time">BUS TIME:</string>
+    <string name="arrival_time">ARRIVAL TIME:</string>
+    <string name="departure_time">DEPARTURE TIME:</string>
+    <string name="add_data">ADD DATA</string>
+    <string name="retrieve">RETRIEVE</string>
+
 </resources>
