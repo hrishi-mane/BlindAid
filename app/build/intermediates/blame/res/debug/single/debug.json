@@ -72,6 +72,10 @@
         "source": "C:\\Users\\Admin\\AndroidStudioProjects\\BlindAid\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Admin\\AndroidStudioProjects\\BlindAid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_location__tracking.xml.flat",
+        "source": "C:\\Users\\Admin\\AndroidStudioProjects\\BlindAid\\app\\src\\main\\res\\layout\\activity_location__tracking.xml"
+    },
+    {
         "merged": "C:\\Users\\Admin\\AndroidStudioProjects\\BlindAid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Admin\\AndroidStudioProjects\\BlindAid\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
     },

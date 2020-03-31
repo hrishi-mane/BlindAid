@@ -11,19 +11,23 @@ public class Note {
     private Date arrival_time;
     private Date departure_time;
     private String travel_time;
+    private String latitude;
+    private String longitude;
 
     public Note(){
         //public no-arg constructor needed
     }
 
     public Note(String source, String destination, String bus_number, Date arrival_time,
-                Date departure_time, String travel_time ){
+                Date departure_time, String travel_time,String latitude, String longitude ){
         this.source = source;
         this.destination = destination;
         this.bus_number = bus_number;
         this.arrival_time = arrival_time;
         this.departure_time = departure_time;
         this.travel_time = travel_time;
+        this.latitude = latitude;
+        this.longitude = longitude;
 
     }
 
@@ -49,5 +53,11 @@ public class Note {
 
     public String getTravel_time() {
         return travel_time;
+    }
+    public String getLatitude() {
+        return latitude;
+    }
+    public String getLongitude() {
+        return longitude;
     }
 }

@@ -27,7 +27,7 @@
 15-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:10:22-76
 16
 17    <application
-17-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:10:5-27:19
+17-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:10:5-28:19
 18        android:name="androidx.multidex.MultiDexApplication"
 19        android:allowBackup="true"
 19-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:11:9-35
@@ -45,67 +45,70 @@
 26        android:testOnly="true"
 27        android:theme="@style/AppTheme" >
 27-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:16:9-40
-28        <activity android:name="com.example.blindaid.User_Emergency" />
-28-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:17:9-61
-28-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:17:19-49
-29        <activity android:name="com.example.blindaid.Homepage" >
-29-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:18:9-24:20
-29-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:18:19-43
-30            <intent-filter>
-30-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:19:13-23:29
-31                <action android:name="android.intent.action.MAIN" />
-31-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:20:17-69
-31-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:20:25-66
-32
-33                <category android:name="android.intent.category.LAUNCHER" />
-33-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:22:17-77
-33-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:22:27-74
-34            </intent-filter>
-35        </activity>
-36        <activity android:name="com.example.blindaid.EMERGENCY_CONTACT" />
-36-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:25:9-55
-36-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:25:19-52
-37        <activity android:name="com.example.blindaid.MainActivity" />
-37-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:26:9-50
-37-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:26:19-47
-38
-39        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
-39-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:14:9-18:19
-39-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:14:18-89
-40            <meta-data
-40-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:15:13-17:85
-41                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-41-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:16:17-111
-42                android:value="com.google.firebase.components.ComponentRegistrar" />
-42-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:17:17-82
-43        </service>
-44
-45        <activity
-45-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\78e3b58a3860536f220dc138f4a2cba4\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-46            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-46-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\78e3b58a3860536f220dc138f4a2cba4\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-47            android:exported="false"
-47-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\78e3b58a3860536f220dc138f4a2cba4\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-48            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-48-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\78e3b58a3860536f220dc138f4a2cba4\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-49
-50        <provider
-50-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c87b9a70d7ceb5a1f50e58bd3325ac39\jetified-firebase-common-16.0.3\AndroidManifest.xml:10:9-14:39
-51            android:name="com.google.firebase.provider.FirebaseInitProvider"
-51-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c87b9a70d7ceb5a1f50e58bd3325ac39\jetified-firebase-common-16.0.3\AndroidManifest.xml:11:13-77
-52            android:authorities="com.example.blindaid.firebaseinitprovider"
-52-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c87b9a70d7ceb5a1f50e58bd3325ac39\jetified-firebase-common-16.0.3\AndroidManifest.xml:12:13-72
-53            android:exported="false"
-53-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c87b9a70d7ceb5a1f50e58bd3325ac39\jetified-firebase-common-16.0.3\AndroidManifest.xml:13:13-37
-54            android:initOrder="100" />
-54-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c87b9a70d7ceb5a1f50e58bd3325ac39\jetified-firebase-common-16.0.3\AndroidManifest.xml:14:13-36
-55
-56        <meta-data
-56-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6b9a3f54b7aeaa05beab7d746c4b9e08\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-57            android:name="com.google.android.gms.version"
-57-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6b9a3f54b7aeaa05beab7d746c4b9e08\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-58            android:value="@integer/google_play_services_version" />
-58-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6b9a3f54b7aeaa05beab7d746c4b9e08\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-59    </application>
-60
-61</manifest>
+28        <activity android:name="com.example.blindaid.Location_Tracking" />
+28-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:17:9-64
+28-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:17:19-52
+29        <activity android:name="com.example.blindaid.User_Emergency" />
+29-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:18:9-52
+29-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:18:19-49
+30        <activity android:name="com.example.blindaid.Homepage" >
+30-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:19:9-25:20
+30-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:19:19-43
+31            <intent-filter>
+31-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:20:13-24:29
+32                <action android:name="android.intent.action.MAIN" />
+32-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:21:17-69
+32-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:21:25-66
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:23:17-77
+34-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:23:27-74
+35            </intent-filter>
+36        </activity>
+37        <activity android:name="com.example.blindaid.EMERGENCY_CONTACT" />
+37-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:26:9-55
+37-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:26:19-52
+38        <activity android:name="com.example.blindaid.MainActivity" />
+38-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:27:9-50
+38-->C:\Users\Admin\AndroidStudioProjects\BlindAid\app\src\main\AndroidManifest.xml:27:19-47
+39
+40        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+40-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:14:9-18:19
+40-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:14:18-89
+41            <meta-data
+41-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:15:13-17:85
+42                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+42-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:16:17-111
+43                android:value="com.google.firebase.components.ComponentRegistrar" />
+43-->[com.google.firebase:firebase-firestore:17.1.2] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\089fee06833e3c1252b35ae00e9aeaba\jetified-firebase-firestore-17.1.2\AndroidManifest.xml:17:17-82
+44        </service>
+45
+46        <activity
+46-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\78e3b58a3860536f220dc138f4a2cba4\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+47            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+47-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\78e3b58a3860536f220dc138f4a2cba4\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+48            android:exported="false"
+48-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\78e3b58a3860536f220dc138f4a2cba4\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+49            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+49-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\78e3b58a3860536f220dc138f4a2cba4\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+50
+51        <provider
+51-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c87b9a70d7ceb5a1f50e58bd3325ac39\jetified-firebase-common-16.0.3\AndroidManifest.xml:10:9-14:39
+52            android:name="com.google.firebase.provider.FirebaseInitProvider"
+52-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c87b9a70d7ceb5a1f50e58bd3325ac39\jetified-firebase-common-16.0.3\AndroidManifest.xml:11:13-77
+53            android:authorities="com.example.blindaid.firebaseinitprovider"
+53-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c87b9a70d7ceb5a1f50e58bd3325ac39\jetified-firebase-common-16.0.3\AndroidManifest.xml:12:13-72
+54            android:exported="false"
+54-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c87b9a70d7ceb5a1f50e58bd3325ac39\jetified-firebase-common-16.0.3\AndroidManifest.xml:13:13-37
+55            android:initOrder="100" />
+55-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c87b9a70d7ceb5a1f50e58bd3325ac39\jetified-firebase-common-16.0.3\AndroidManifest.xml:14:13-36
+56
+57        <meta-data
+57-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6b9a3f54b7aeaa05beab7d746c4b9e08\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+58            android:name="com.google.android.gms.version"
+58-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6b9a3f54b7aeaa05beab7d746c4b9e08\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+59            android:value="@integer/google_play_services_version" />
+59-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6b9a3f54b7aeaa05beab7d746c4b9e08\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+60    </application>
+61
+62</manifest>

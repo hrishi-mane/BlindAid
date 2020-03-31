@@ -17,4 +17,6 @@
     <string name="add_contact_button_name">Add Contact</string>
     <string name="full_name">Full Name</string>
     <string name="phone_number">Phone Number</string>
+    <string name="tap_the_screen">TAP THE SCREEN</string>
+    <string name="tap_for_location">TAP FOR LOCATION</string>
 </resources>

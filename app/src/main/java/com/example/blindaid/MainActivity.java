@@ -2,9 +2,9 @@ package com.example.blindaid;
 
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GestureDetectorCompat;
 
 import android.Manifest;
 import android.content.Intent;
@@ -18,8 +18,8 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
 
-import android.view.View;
-import android.widget.Button;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
     EditText source;
     EditText destination;
-    Button btn;
 
     SpeechRecognizer mSpeechRecognizer;
     Intent mSpeechRecognizerIntent;
     private TextToSpeech myTTS;
 
     int click_count;
+    String bus_number;
 
     FirebaseFirestore db;
     private CollectionReference busData;
@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     StringBuffer buffer;
 
     Date dt2;
+
+    GestureDetectorCompat mGestureDetector;
 
 
     @Override
@@ -63,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         audioPermission();
         initializeTextToSpeech();
 
-        btn = (Button) findViewById(R.id.button6);
         source = (EditText) findViewById(R.id.editText);
         destination = (EditText) findViewById(R.id.editText5);
 
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         click_count = 0;
 
+        mGestureDetector = new GestureDetectorCompat(MainActivity.this, new GestureListener());
 
         mSpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
 
@@ -83,39 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
 
-        //button listener method
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                click_count = click_count + 1;
-                if (click_count == 1) {
-                    speak("आपने Source चुना है। बोलने के लिए फिर से क्लिक करें");
-                }
-                if (click_count == 2) {
-                    mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
 
-                }
-                if (click_count == 3) {
-                    mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
-                }
-
-                if (click_count >= 4) {
-                    loadNote();
-
-                }
-            }
-        });
-
-        btn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                speak("Source और Destination हटाएँ गए हैं। कृपया फिर से दर्ज करें");
-                click_count = -1;
-                source.setText("");
-                destination.setText("");
-                return false;
-            }
-        });
 
         mSpeechRecognizer.setRecognitionListener(new RecognitionListener() {
             @Override
@@ -151,14 +121,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResults(Bundle bundle) {
                 ArrayList<String> matches = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-                if (matches != null & source.getText().toString().equals("")) {
+                if (matches != null & click_count == 2) {
                     source.setText(matches.get(0));
                     speak("Source location दर्ज किया गया है" + source.getText().toString() + ", Destination बोलने के लिए फिर से क्लिक करें");
-                } else {
-                    if (matches != null & destination.getText().toString().equals("")) {
-                        destination.setText(matches.get(0));
-                        speak("Destination दर्ज किया गया है" + destination.getText().toString());
-                    }
+                }
+                else {
+                    destination.setText(matches.get(0));
+                    speak("Destination दर्ज किया गया है" + destination.getText().toString());
                 }
 
 
@@ -175,6 +144,53 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+    }
+    private class GestureListener extends GestureDetector.SimpleOnGestureListener{
+        @Override
+        public void onLongPress(MotionEvent e) {
+            speak("Source और Destination हटाएँ गए हैं। कृपया फिर से दर्ज करें");
+            click_count = 0;
+            source.setText("");
+            destination.setText("");
+            super.onLongPress(e);
+        }
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            Intent intent = new Intent(MainActivity.this, Location_Tracking.class);
+            intent.putExtra("Bus_number",bus_number);
+            startActivity(intent);
+            return super.onFling(e1, e2, velocityX, velocityY);
+        }
+
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent e) {
+            click_count = click_count + 1;
+                if (click_count == 1) {
+                    speak("आपने Source चुना है। बोलने के लिए फिर से क्लिक करें");
+                }
+                if (click_count == 2) {
+                    mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
+
+                }
+                if (click_count == 3) {
+                    mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
+                }
+
+                if (click_count >= 4) {
+                    loadNote();
+
+                }
+            return super.onSingleTapConfirmed(e);
+        }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        mGestureDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 
     private void loadNote() {
@@ -185,16 +201,15 @@ public class MainActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        int document_count = 0;
                         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                             Note note = documentSnapshot.toObject(Note.class);
-                            document_count+=1;
-                            System.out.println(document_count);
+                            bus_number = note.getBus_number();
                             Calendar stored_date = datetoCalender(note.getDeparture_time());
                             Calendar current_date = datetoCalender(dt2);
 
                             if(stored_date.get(Calendar.HOUR_OF_DAY) > current_date.get(Calendar.HOUR_OF_DAY) ||
-                                    stored_date.get(Calendar.HOUR_OF_DAY) == current_date.get(Calendar.HOUR_OF_DAY)) {
+                                    (stored_date.get(Calendar.HOUR_OF_DAY) == current_date.get(Calendar.HOUR_OF_DAY) &&
+                                    stored_date.get(Calendar.MINUTE) > current_date.get(Calendar.MINUTE)) ) {
 
                                 buffer.append("इस रूट के लिए बस नंबर ").append(note.getBus_number()).append("है");
                                 buffer.append("\n");
@@ -232,14 +247,14 @@ public class MainActivity extends AppCompatActivity {
                                         datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) < 10){
 
                                     buffer.append("और" + "0").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
-                                            append("0").append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).append("बजे").
+                                            append("0").append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).append("पे").
                                             append(note.getDestination()).append("पहुंचेगी");
                                 }
                                 else if(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
                                         datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) > 10){
 
                                     buffer.append("और" + "0").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
-                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("बजे").append(note.getDestination()).
+                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("पे").append(note.getDestination()).
                                             append("पहुंचेगी");
                                 }
 
@@ -247,24 +262,22 @@ public class MainActivity extends AppCompatActivity {
                                         datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) < 10){
 
                                     buffer.append("और").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").append("0").
-                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("बजे").append(note.getDestination()).
+                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("पे").append(note.getDestination()).
                                             append("पहुंचेगी");
                                 }
                                 else{
                                     buffer.append("और").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
-                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("बजे").append(note.getDestination()).
+                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("पे").append(note.getDestination()).
                                             append("पहुंचेगी");
                                 }
 
                                 buffer.append("\n").append("बस का कुल यात्रा समय").append(note.getTravel_time()).append("मिनट है").append("\n").append("\n");
                             }
-
                         }
-
                         speak(buffer.toString());
 
                         if(buffer.toString().length() == 0){
-                            speak("इस मार्ग के लिए कोई बस उपलब्ध नहीं है");
+                            speak("आज इस मार्ग के लिए कोई बस उपलब्ध नहीं है");
                         }
                     }
                 });
