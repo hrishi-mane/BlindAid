@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -46,11 +45,12 @@ public class MainActivity extends AppCompatActivity {
     DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
     String date;
 
+    DateFormat dateFormat = new SimpleDateFormat("hh.mm aa");
+
     TimePickerDialog timePickerDialog;
     Calendar calender = Calendar.getInstance();
     int currentHour;
     int currentMinute;
-    String amPm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,25 +74,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 currentHour = calender.get(Calendar.HOUR_OF_DAY);
                 currentMinute = calender.get(Calendar.MINUTE);
-                timePickerDialog = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
-                        if (hourOfDay < 10 && minute < 10) {
-                            DepartureTime.setText("0" + hourOfDay + ":" + "0" + minute + ":" + "00");
-                        }
-                        else if(hourOfDay < 10 && minute > 10) {
-                            DepartureTime.setText("0" + hourOfDay + ":" + minute + ":" + "00");
-                        }
-                        else if(hourOfDay > 10 && minute < 10) {
-                            DepartureTime.setText(hourOfDay + ":" + "0" + minute + ":" + "00");
-                        }
-                        else{
-                            DepartureTime.setText(hourOfDay + ":"+ minute + ":" + "00");
-                        }
-
-                    }
-                },currentHour,currentMinute, android.text.format.DateFormat.is24HourFormat(MainActivity.this));
+                timePickerDialog = new TimePickerDialog(MainActivity.this, new DepartureTimePicker(),currentHour,currentMinute,
+                        android.text.format.DateFormat.is24HourFormat(MainActivity.this));
                 timePickerDialog.show();
             }
         });
@@ -102,23 +85,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 currentHour = calender.get(Calendar.HOUR_OF_DAY);
                 currentMinute = calender.get(Calendar.MINUTE);
-                timePickerDialog = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        if (hourOfDay < 10 && minute < 10) {
-                            ArrivalTime.setText("0" + hourOfDay + ":" + "0" + minute + ":" + "00");
-                        }
-                        else if(hourOfDay < 10 && minute > 10) {
-                            ArrivalTime.setText("0" + hourOfDay + ":" + minute + ":" + "00");
-                        }
-                        else if(hourOfDay > 10 && minute < 10) {
-                            ArrivalTime.setText(hourOfDay + ":" + "0" + minute + ":" + "00");
-                        }
-                        else{
-                            ArrivalTime.setText(hourOfDay + ":"+ minute + ":" + "00");
-                        }
-                    }
-                },currentHour,currentMinute, android.text.format.DateFormat.is24HourFormat(MainActivity.this));
+                timePickerDialog = new TimePickerDialog(MainActivity.this, new ArrivalTimePicker(),currentHour,currentMinute,
+                        android.text.format.DateFormat.is24HourFormat(MainActivity.this));
                 timePickerDialog.show();
             }
         });
@@ -142,6 +110,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private class ArrivalTimePicker implements TimePickerDialog.OnTimeSetListener {
+        @Override
+        public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
+            if (hourOfDay < 10 && minute < 10) {
+                ArrivalTime.setText("0" + hourOfDay + ":" + "0" + minute + ":" + "00");
+            }
+            else if(hourOfDay < 10 && minute > 10) {
+                ArrivalTime.setText("0" + hourOfDay + ":" + minute + ":" + "00");
+            }
+            else if(hourOfDay > 10 && minute < 10) {
+                ArrivalTime.setText(hourOfDay + ":" + "0" + minute + ":" + "00");
+            }
+            else{
+                ArrivalTime.setText(hourOfDay + ":"+ minute + ":" + "00");
+            }
+        }
+    }
+
+    private class DepartureTimePicker  implements TimePickerDialog.OnTimeSetListener {
+        @Override
+        public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
+            if (hourOfDay < 10 && minute < 10) {
+                DepartureTime.setText("0" + hourOfDay + ":" + "0" + minute + ":" + "00");
+            }
+            else if(hourOfDay < 10 && minute > 10) {
+                DepartureTime.setText("0" + hourOfDay + ":" + minute + ":" + "00");
+            }
+            else if(hourOfDay > 10 && minute < 10) {
+                DepartureTime.setText(hourOfDay + ":" + "0" + minute + ":" + "00");
+            }
+            else{
+                DepartureTime.setText(hourOfDay + ":"+ minute + ":" + "00");
+            }
+        }
     }
 
 
@@ -180,17 +184,22 @@ public class MainActivity extends AppCompatActivity {
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                     Note note = documentSnapshot.toObject(Note.class);
 
-                    buffer.append("Source: " + note.getSource());
+                    buffer.append("Source: ").append(note.getSource());
                     buffer.append("\n");
-                    buffer.append("Destination: " + note.getDestination());
+
+                    buffer.append("Destination: ").append(note.getDestination());
                     buffer.append("\n");
-                    buffer.append("Bus Number: " + note.getBus_number());
+
+                    buffer.append("Bus Number: ").append(note.getBus_number());
                     buffer.append("\n");
-                    buffer.append("Departure Time: " + note.getDeparture_time());
+
+                    buffer.append("Departure Time: ").append(dateFormat.format(note.getDeparture_time()));
                     buffer.append("\n");
-                    buffer.append("Arrival Time: " + note.getArrival_time());
+
+                    buffer.append("Arrival Time: ").append(dateFormat.format(note.getArrival_time()));
                     buffer.append("\n");
-                    buffer.append("Total Travel Time: " + note.getTravel_time());
+
+                    buffer.append("Total Travel Time: ").append(note.getTravel_time());
                     buffer.append("\n");
                     buffer.append("\n");
                 }
@@ -198,6 +207,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     public void showMessage(String Title, String Message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
