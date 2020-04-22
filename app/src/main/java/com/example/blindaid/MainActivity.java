@@ -53,7 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
     Date dt2;
 
+
     GestureDetectorCompat mGestureDetector;
+
+    static MainActivity instance;
+
+    public static MainActivity getInstance(){
+        return instance;
+    }
 
 
     @Override
@@ -61,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        instance = this;
 
         audioPermission();
         initializeTextToSpeech();
@@ -143,9 +152,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
     private class GestureListener extends GestureDetector.SimpleOnGestureListener{
         @Override
@@ -204,8 +210,8 @@ public class MainActivity extends AppCompatActivity {
                         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                             Note note = documentSnapshot.toObject(Note.class);
                             bus_number = note.getBus_number();
-                            Calendar stored_date = datetoCalender(note.getDeparture_time());
-                            Calendar current_date = datetoCalender(dt2);
+                            Calendar stored_date = dateToCalendar(note.getDeparture_time());
+                            Calendar current_date = dateToCalendar(dt2);
 
                             if(stored_date.get(Calendar.HOUR_OF_DAY) > current_date.get(Calendar.HOUR_OF_DAY) ||
                                     (stored_date.get(Calendar.HOUR_OF_DAY) == current_date.get(Calendar.HOUR_OF_DAY) &&
@@ -214,60 +220,60 @@ public class MainActivity extends AppCompatActivity {
                                 buffer.append("इस रूट के लिए बस नंबर ").append(note.getBus_number()).append("है");
                                 buffer.append("\n");
 
-                                if(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
-                                        datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) < 10){
+                                if(dateToCalendar(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
+                                        dateToCalendar(note.getDeparture_time()).get(Calendar.MINUTE) < 10){
 
-                                    buffer.append("बस" + "0").append(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).
-                                            append(":").append("0").append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).
+                                    buffer.append("बस" + "0").append(dateToCalendar(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).
+                                            append(":").append("0").append(dateToCalendar(note.getDeparture_time()).get(Calendar.MINUTE)).
                                             append(note.getSource()).append("से रवाना होगी ");
                                 }
-                                else if(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
-                                        datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) > 10){
+                                else if(dateToCalendar(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
+                                        dateToCalendar(note.getDeparture_time()).get(Calendar.MINUTE) > 10){
 
-                                    buffer.append("बस" + "0").append(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).append(":").
-                                            append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).append(note.getSource()).
+                                    buffer.append("बस" + "0").append(dateToCalendar(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append(dateToCalendar(note.getDeparture_time()).get(Calendar.MINUTE)).append(note.getSource()).
                                             append("से रवाना होगी ");
                                 }
-                                else if(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) > 10 &&
-                                        datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE) < 10){
+                                else if(dateToCalendar(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY) > 10 &&
+                                        dateToCalendar(note.getDeparture_time()).get(Calendar.MINUTE) < 10){
 
-                                    buffer.append("बस").append(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).append(":").
-                                            append("0").append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).append(note.getSource()).
+                                    buffer.append("बस").append(dateToCalendar(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append("0").append(dateToCalendar(note.getDeparture_time()).get(Calendar.MINUTE)).append(note.getSource()).
                                             append("से रवाना होगी ");
                                 }
                                 else{
-                                    buffer.append("बस").append(datetoCalender(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).append(":").
-                                            append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).append(note.getSource()).
+                                    buffer.append("बस").append(dateToCalendar(note.getDeparture_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append(dateToCalendar(note.getDeparture_time()).get(Calendar.MINUTE)).append(note.getSource()).
                                             append("से रवाना होगी ");
                                 }
                                 buffer.append("\n");
 
 
-                                if(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
-                                        datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) < 10){
+                                if(dateToCalendar(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
+                                        dateToCalendar(note.getArrival_time()).get(Calendar.MINUTE) < 10){
 
-                                    buffer.append("और" + "0").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
-                                            append("0").append(datetoCalender(note.getDeparture_time()).get(Calendar.MINUTE)).append("पे").
+                                    buffer.append("और" + "0").append(dateToCalendar(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append("0").append(dateToCalendar(note.getDeparture_time()).get(Calendar.MINUTE)).append("पे").
                                             append(note.getDestination()).append("पहुंचेगी");
                                 }
-                                else if(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
-                                        datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) > 10){
+                                else if(dateToCalendar(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) < 10 &&
+                                        dateToCalendar(note.getArrival_time()).get(Calendar.MINUTE) > 10){
 
-                                    buffer.append("और" + "0").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
-                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("पे").append(note.getDestination()).
+                                    buffer.append("और" + "0").append(dateToCalendar(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append(dateToCalendar(note.getArrival_time()).get(Calendar.MINUTE)).append("पे").append(note.getDestination()).
                                             append("पहुंचेगी");
                                 }
 
-                                else if(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) > 10 &&
-                                        datetoCalender(note.getArrival_time()).get(Calendar.MINUTE) < 10){
+                                else if(dateToCalendar(note.getArrival_time()).get(Calendar.HOUR_OF_DAY) > 10 &&
+                                        dateToCalendar(note.getArrival_time()).get(Calendar.MINUTE) < 10){
 
-                                    buffer.append("और").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").append("0").
-                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("पे").append(note.getDestination()).
+                                    buffer.append("और").append(dateToCalendar(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").append("0").
+                                            append(dateToCalendar(note.getArrival_time()).get(Calendar.MINUTE)).append("पे").append(note.getDestination()).
                                             append("पहुंचेगी");
                                 }
                                 else{
-                                    buffer.append("और").append(datetoCalender(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
-                                            append(datetoCalender(note.getArrival_time()).get(Calendar.MINUTE)).append("पे").append(note.getDestination()).
+                                    buffer.append("और").append(dateToCalendar(note.getArrival_time()).get(Calendar.HOUR_OF_DAY)).append(":").
+                                            append(dateToCalendar(note.getArrival_time()).get(Calendar.MINUTE)).append("पे").append(note.getDestination()).
                                             append("पहुंचेगी");
                                 }
 
@@ -285,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private Calendar datetoCalender(Date dt) {
+    private Calendar dateToCalendar(Date dt) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(dt);
         return calendar;
@@ -304,6 +310,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
 
                     myTTS.setLanguage(Locale.forLanguageTag("hin"));
+                    speak("आपने बस मार्गदर्शन सुविधा खोली है");
 
                 }
             }
@@ -311,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //method for implementing background voice
-    private void speak(String s) {
+    public void speak(String s) {
         if (Build.VERSION.SDK_INT >= 21) {
             myTTS.speak(s, TextToSpeech.QUEUE_FLUSH, null, null);
         } else {

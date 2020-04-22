@@ -219,7 +219,7 @@ public class EMERGENCY_CONTACT extends AppCompatActivity {
                 }
                 else{
                     myTTS.setLanguage(Locale.forLanguageTag("hin"));
-                    speak("आपने आपातकालीन संपर्क खोला हैं। \n" +
+                    speak("आपने आपातकालीन संपर्क सुविधा खोली है\n" +
                             "आप किसे संदेश भेजना चाहते हैं");
                 }
             }
