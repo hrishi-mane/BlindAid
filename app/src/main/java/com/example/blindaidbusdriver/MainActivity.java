@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     static  MainActivity instance;
 
-    //Create Button
+    //Create Button btn
     Button btn;
 
     public  static MainActivity getInstance(){
