@@ -1,0 +1,131 @@
+{
+  "project_info": {
+    "project_number": "1081697740593",
+    "firebase_url": "https://blindaid-75b33.firebaseio.com",
+    "project_id": "blindaid-75b33",
+    "storage_bucket": "blindaid-75b33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081697740593:android:d4d1cb54757cb033f8f210",
+        "android_client_info": {
+          "package_name": "com.example.blindaid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081697740593-uj4dlq3eq8pq37o2t5deangnotks2r5k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blindaid",
+            "certificate_hash": "8f4cb021150db2bdaad8d1b6fb2ac723956af6c3"
+          }
+        },
+        {
+          "client_id": "1081697740593-uktr8ro25s1gnk1p16uu3agngfqepcfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsE3O73B357qBynb5H59v7PyLOJ6QB81M"
+        },
+        {
+          "current_key": "AIzaSyBuvp51L36JJY5F1zrrtGLqNShzQO9Asl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081697740593-uktr8ro25s1gnk1p16uu3agngfqepcfr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081697740593:android:705d3a561528d935f8f210",
+        "android_client_info": {
+          "package_name": "com.example.blindaidbuscorporation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081697740593-nl51q4f0egp88ldi4ftt58s8ut6pv3a2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blindaidbuscorporation",
+            "certificate_hash": "8f4cb021150db2bdaad8d1b6fb2ac723956af6c3"
+          }
+        },
+        {
+          "client_id": "1081697740593-uktr8ro25s1gnk1p16uu3agngfqepcfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsE3O73B357qBynb5H59v7PyLOJ6QB81M"
+        },
+        {
+          "current_key": "AIzaSyBuvp51L36JJY5F1zrrtGLqNShzQO9Asl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081697740593-uktr8ro25s1gnk1p16uu3agngfqepcfr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081697740593:android:ebf76b1083cbb29af8f210",
+        "android_client_info": {
+          "package_name": "com.example.blindaidbusdriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081697740593-59ob9l2nun9m7cfak56gubopmrc2na0f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blindaidbusdriver",
+            "certificate_hash": "8f4cb021150db2bdaad8d1b6fb2ac723956af6c3"
+          }
+        },
+        {
+          "client_id": "1081697740593-uktr8ro25s1gnk1p16uu3agngfqepcfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsE3O73B357qBynb5H59v7PyLOJ6QB81M"
+        },
+        {
+          "current_key": "AIzaSyBuvp51L36JJY5F1zrrtGLqNShzQO9Asl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081697740593-uktr8ro25s1gnk1p16uu3agngfqepcfr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
