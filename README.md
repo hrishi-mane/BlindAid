@@ -1,2 +1,2 @@
 ## Blind Aid Application
-This repository contains a detailed sample app that implements MVVM architecture using Dagger2, Room, RxJava, FastAndroidNetworking, PlaceHolderView and AndroidDebugDatabase.
+This repository contains an app that aims to solve the public transportation problem for the blind people. 
