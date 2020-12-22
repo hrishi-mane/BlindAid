@@ -3,10 +3,10 @@
 - Three different apps can be found in their individual branches
 - The main customer facing application is in the master branch
 - The other two are the: 
-# App for Bus Driver 
-# App for Bus Corporation
+### App for Bus Driver 
+### App for Bus Corporation
 
-# Find the screenshots of the three applications below 
+### Find the screenshots of the three applications below 
 
 
-# Blind Aid
+### Blind Aid
